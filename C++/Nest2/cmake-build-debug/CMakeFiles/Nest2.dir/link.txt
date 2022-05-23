@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\Nest2.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\Nest2.dir/objects.a @CMakeFiles\Nest2.dir\objects1.rsp
+C:\MinGW\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\Nest2.dir/objects.a -Wl,--no-whole-archive -o Nest2.exe -Wl,--out-implib,libNest2.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Nest2.dir\linklibs.rsp

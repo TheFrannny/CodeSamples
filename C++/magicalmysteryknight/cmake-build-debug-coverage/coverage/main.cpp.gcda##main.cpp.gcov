@@ -1,0 +1,831 @@
+        -:    0:Source:C:/Users/Adolf Hitler/CLionProjects/magicalmysteryknight/main.cpp
+        -:    0:Graph:C:\Users\Adolf Hitler\CLionProjects\magicalmysteryknight\cmake-build-debug-coverage\CMakeFiles\magicalmysteryknight.dir\main.cpp.gcno
+        -:    0:Data:C:\Users\Adolf Hitler\CLionProjects\magicalmysteryknight\cmake-build-debug-coverage\CMakeFiles\magicalmysteryknight.dir\main.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include <bits/stdc++.h>
+        -:    2:#include <chrono>
+        -:    3:using namespace std;
+        -:    4:
+        -:    5:// Solution programmed by Francisco Romero (me)
+        -:    6:// Algorithm Designed by Francisco Romero and David Winosky
+        -:    7:
+        -:    8:short original[10][10] = {0}; // the original chess board
+        -:    9:short degree[10][10] = {0};
+        -:   10:short takenTiles[65]; // 65 so i can index at 1 like the tiles are numbered
+        -:   11:chrono::time_point<chrono::high_resolution_clock> start;
+        -:   12:chrono::time_point<chrono::high_resolution_clock> stop;
+        -:   13:
+        -:   14:int oneY, oneX; // location of tile numbered 1
+        -:   15:
+        -:   16:// prints board
+function _Z10printBoardPA10_s called 1 returned 100% blocks executed 100%
+        1:   17:inline void printBoard(short matrix[][10]) {
+        9:   18:    for (int y = 0; y < 8; y++) {
+        1:   18-block  0
+        9:   18-block  1
+branch  0 taken 8
+branch  1 taken 1 (fallthrough)
+       72:   19:        for (int x = 0; x < 8; x++)
+        8:   19-block  0
+       72:   19-block  1
+branch  0 taken 64
+branch  1 taken 8 (fallthrough)
+       64:   20:            cout << matrix[y][x] << ' ';
+       64:   20-block  0
+call    0 returned 64
+call    1 returned 64
+        8:   21:        cout << endl;
+        8:   21-block  0
+call    0 returned 8
+        -:   22:    }
+        1:   23:}
+        -:   24:
+        -:   25:// success
+function _Z7victoryPA10_s called 1 returned 0% blocks executed 92%
+        1:   26:inline void victory(short matrix[][10]) {
+        1:   27:    printBoard(matrix);
+        1:   27-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   28:    stop = chrono::high_resolution_clock::now();
+        1:   28-block  0
+call    0 returned 1
+        1:   29:    auto duration = chrono::duration_cast<chrono::milliseconds>(stop - start);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   29-block  0
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+    $$$$$:   29-block  1
+        1:   30:    cout << endl << "Found solution yay! " << duration.count() << "ms" << endl;
+        1:   30-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   30-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   30-block  2
+call    6 returned 1
+call    7 returned 1
+branch  8 taken 1 (fallthrough)
+branch  9 taken 0 (throw)
+        1:   30-block  3
+call   10 returned 1
+branch 11 taken 1 (fallthrough)
+branch 12 taken 0 (throw)
+        1:   30-block  4
+call   13 returned 1
+branch 14 taken 1 (fallthrough)
+branch 15 taken 0 (throw)
+        1:   31:    exit(0);
+        1:   31-block  0
+call    0 returned 0
+        -:   32:}
+function _Z5limitii called 0 returned 0% blocks executed 0%
+    #####:   33:bool limit(int y, int x){
+    #####:   34:    if(y < 0 || y > 7 || x < 0 || x > 7)
+    %%%%%:   34-block  0
+branch  0 never executed
+branch  1 never executed
+    %%%%%:   34-block  1
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   34-block  2
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   34-block  3
+branch  6 never executed
+branch  7 never executed
+    #####:   35:        return false;
+    %%%%%:   35-block  0
+    #####:   36:    return true;
+    %%%%%:   36-block  0
+        -:   37:}
+        -:   38:void all8Directions(short matrix[][10], short degs[][10], int y, int x, int moveNum);
+        -:   39:
+        -:   40:// checks validity of tile, if passes then sends it to all8directions
+function _Z11exploreTilePA10_sS0_iii called 42089281 returned 100% blocks executed 96%
+ 42089281:   41:inline void exploreTile(short matrix[][10], short degs[][10], int y, int x, int moveNum) {
+        -:   42:    //printf("test2\n");
+ 42089281:   43:    if (matrix[y][x] > 0) { // if the space is taken, continue. dont need to check for magicalness
+ 42089281:   43-block  0
+branch  0 taken 23409897 (fallthrough)
+branch  1 taken 18679384
+ 23409897:   44:        if (matrix[y][x] != moveNum)
+ 23409897:   44-block  0
+branch  0 taken 22477675 (fallthrough)
+branch  1 taken 932222
+ 22477675:   45:            return;
+ 22477675:   45-block  0
+   932222:   46:        else if (moveNum == 64)
+   932222:   46-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 932222
+    #####:   47:            victory(matrix);
+    %%%%%:   47-block  0
+call    0 never executed
+   932222:   48:        all8Directions(matrix, degs, y, x, moveNum + 1);
+   932222:   48-block  0
+call    0 returned 932201
+        -:   49:    }
+        -:   50:    else {
+ 18679384:   51:        if (takenTiles[moveNum] == 1) // checks if current move # is taken by another tile
+ 18679384:   51-block  0
+branch  0 taken 7750263 (fallthrough)
+branch  1 taken 10929121
+ 14693835:   52:            return;
+  7750263:   52-block  0
+ 14693835:   52-block  1
+        -:   53:
+ 10929121:   54:        else if (matrix[y][8] + (7 - matrix[y][9]) * (64) + moveNum < 260) // checks if too low to get 260
+ 10929121:   54-block  0
+branch  0 taken 2689746 (fallthrough)
+branch  1 taken 8239375
+  2689746:   55:            return;
+  2689746:   55-block  0
+        -:   56:
+  8239375:   57:        else if (matrix[8][x] + (7 - matrix[9][x]) * (64) + moveNum < 260) // checks if too low to get 260
+  8239375:   57-block  0
+branch  0 taken 3883241 (fallthrough)
+branch  1 taken 4356134
+  3883241:   58:            return;
+  3883241:   58-block  0
+        -:   59:
+  4356134:   60:        else if (matrix[y][8] + (7 - matrix[y][9]) * (moveNum + 2) + moveNum > 260) // checks if too high to get 260
+  4356134:   60-block  0
+branch  0 taken 352153 (fallthrough)
+branch  1 taken 4003981
+   352153:   61:            return;
+   352153:   61-block  0
+        -:   62:
+  4003981:   63:        else if (matrix[8][x] + (7 - matrix[9][x]) * (moveNum + 2) + moveNum > 260) // checks if too high to get 260
+  4003981:   63-block  0
+branch  0 taken 18432 (fallthrough)
+branch  1 taken 3985549
+    18432:   64:            return;
+    18432:   64-block  0
+        -:   65:
+        -:   66:        short newMatrix[10][10]; // making new matrix to continue the recursion
+  3985549:   67:        memcpy(newMatrix, matrix, 100 * sizeof(short));
+  3985549:   68:        newMatrix[y][x] = moveNum;
+  3985549:   69:        newMatrix[y][8] += moveNum;
+  3985549:   70:        newMatrix[y][9]++;
+  3985549:   71:        newMatrix[8][x] += moveNum;
+  3985549:   72:        newMatrix[9][x]++;
+        -:   73:
+  3985549:   74:        if (moveNum == 64) // if final move, victory!
+  3985549:   74-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 3985548
+        1:   75:            victory(newMatrix);
+        1:   75-block  0
+call    0 returned 0
+branch  1 taken 0 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   76:
+  3985548:   77:        all8Directions(newMatrix, degs, y, x, moveNum + 1);
+  3985548:   77-block  0
+call    0 returned 3985507
+branch  1 taken 3985507 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   78:    }
+        -:   79:}
+        -:   80:
+function _Z9getDegreePA10_siii called 39342232 returned 100% blocks executed 85%
+ 39342232:   81:short getDegree(short matrix[][10], int y, int x, int moveNum){
+ 39342232:   82:    int deg = 0;
+ 39342232:   83:    if(y < 0 || y > 7 || x < 0 || x > 7)
+ 39342232:   83-block  0
+branch  0 taken 36174284 (fallthrough)
+branch  1 taken 3167948
+ 36174284:   83-block  1
+branch  2 taken 32379786 (fallthrough)
+branch  3 taken 3794498
+ 32379786:   83-block  2
+branch  4 taken 26920819 (fallthrough)
+branch  5 taken 5458967
+ 26920819:   83-block  3
+branch  6 taken 1441336 (fallthrough)
+branch  7 taken 25479483
+ 13862749:   84:        return -9000;
+ 13862749:   84-block  0
+ 25479483:   85:    if(matrix[y][x] != 0 && matrix[y][x] != moveNum)
+ 25479483:   85-block  0
+branch  0 taken 15846803 (fallthrough)
+branch  1 taken 9632680
+ 15846803:   85-block  1
+branch  2 taken 15324311 (fallthrough)
+branch  3 taken 522492
+        -:   86:    {
+        -:   87:        //printf("Rejecting\n");
+ 15324311:   88:        return -9000;
+ 15324311:   88-block  0
+        -:   89:    }
+        -:   90:
+ 10155172:   91:    if (y - 2 >= 0) {
+ 10155172:   91-block  0
+branch  0 taken 7477200 (fallthrough)
+branch  1 taken 2677972
+  7477200:   92:        if (x - 1 >= 0)
+  7477200:   92-block  0
+branch  0 taken 6409988 (fallthrough)
+branch  1 taken 1067212
+  6409988:   93:            if(matrix[y-2][x-1] == moveNum)
+  6409988:   93-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 6409988
+    #####:   94:                return -90;
+    %%%%%:   94-block  0
+  6409988:   95:            else if(matrix[y-2][x-1] == 0)
+  6409988:   95-block  0
+branch  0 taken 2694821 (fallthrough)
+branch  1 taken 3715167
+  2694821:   96:                deg++;
+  2694821:   96-block  0
+  7477200:   97:        if (x + 1 <= 7)
+  7477200:   97-block  0
+branch  0 taken 7240182 (fallthrough)
+branch  1 taken 237018
+  7240182:   98:            if(matrix[y-2][x+1] == moveNum)
+  7240182:   98-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 7240182
+    #####:   99:                return -90;
+    %%%%%:   99-block  0
+  7240182:  100:            else if(matrix[y-2][x+1] == 0)
+  7240182:  100-block  0
+branch  0 taken 1870762 (fallthrough)
+branch  1 taken 5369420
+  1870762:  101:                deg++;
+  1870762:  101-block  0
+        -:  102:    }
+ 10155172:  103:    if (y + 2 <= 7) {
+ 10155172:  103-block  0
+branch  0 taken 8346135 (fallthrough)
+branch  1 taken 1809037
+  8346135:  104:        if (x - 1 >= 0)
+  8346135:  104-block  0
+branch  0 taken 7039974 (fallthrough)
+branch  1 taken 1306161
+  7039974:  105:            if(matrix[y+2][x-1] == moveNum)
+  7039974:  105-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 7039974
+    #####:  106:                return -90;
+    %%%%%:  106-block  0
+  7039974:  107:            else if(matrix[y+2][x-1] == 0)
+  7039974:  107-block  0
+branch  0 taken 1599136 (fallthrough)
+branch  1 taken 5440838
+  1599136:  108:                deg++;
+  1599136:  108-block  0
+  8346135:  109:        if (x + 1 <= 7)
+  8346135:  109-block  0
+branch  0 taken 8135944 (fallthrough)
+branch  1 taken 210191
+  8135944:  110:            if(matrix[y+2][x+1] == moveNum)
+  8135944:  110-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 8135944
+    #####:  111:                return -90;
+    %%%%%:  111-block  0
+  8135944:  112:            else if(matrix[y+2][x+1] == 0)
+  8135944:  112-block  0
+branch  0 taken 2717171 (fallthrough)
+branch  1 taken 5418773
+  2717171:  113:                deg++;
+  2717171:  113-block  0
+        -:  114:
+        -:  115:    }
+ 10155172:  116:    if (x - 2 >= 0) {
+ 10155172:  116-block  0
+branch  0 taken 6908745 (fallthrough)
+branch  1 taken 3246427
+  6908745:  117:        if (y - 1 >= 0)
+  6908745:  117-block  0
+branch  0 taken 5849893 (fallthrough)
+branch  1 taken 1058852
+  5849893:  118:            if(matrix[y-1][x-2] == moveNum)
+  5849893:  118-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 5849893
+    #####:  119:                return -90;
+    %%%%%:  119-block  0
+  5849893:  120:            else if(matrix[y-1][x-2] == 0)
+  5849893:  120-block  0
+branch  0 taken 1967762 (fallthrough)
+branch  1 taken 3882131
+  1967762:  121:                deg++;
+  1967762:  121-block  0
+  6908745:  122:        if (y + 1 >= 0)
+  6908745:  122-block  0
+branch  0 taken 6908745 (fallthrough)
+branch  1 taken 0
+  6908745:  123:            if(matrix[y+1][x-2] == moveNum)
+  6908745:  123-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 6908745
+    #####:  124:                return -90;
+    %%%%%:  124-block  0
+  6908745:  125:            else if(matrix[y+1][x-2] == 0)
+  6908745:  125-block  0
+branch  0 taken 2717687 (fallthrough)
+branch  1 taken 4191058
+  2717687:  126:                deg++;
+  2717687:  126-block  0
+        -:  127:    }
+ 10155172:  128:    if (x + 2 <= 7) {
+ 10155172:  128-block  0
+branch  0 taken 9462074 (fallthrough)
+branch  1 taken 693098
+  9462074:  129:        if (y - 1 >= 0)
+  9462074:  129-block  0
+branch  0 taken 8404022 (fallthrough)
+branch  1 taken 1058052
+  8404022:  130:            if(matrix[y-1][x+2] == moveNum)
+  8404022:  130-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 8404022
+    #####:  131:                return -90;
+    %%%%%:  131-block  0
+  8404022:  132:            else if(matrix[y-1][x+2] == 0)
+  8404022:  132-block  0
+branch  0 taken 3432145 (fallthrough)
+branch  1 taken 4971877
+  3432145:  133:                deg++;
+  3432145:  133-block  0
+  9462074:  134:        if (y + 1 >= 0)
+  9462074:  134-block  0
+branch  0 taken 9462074 (fallthrough)
+branch  1 taken 0
+  9462074:  135:            if(matrix[y+1][x+2] == moveNum)
+  9462074:  135-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 9462074
+    #####:  136:                return -90;
+    %%%%%:  136-block  0
+  9462074:  137:            else if(matrix[y+1][x+2] == 0)
+  9462074:  137-block  0
+branch  0 taken 3669596 (fallthrough)
+branch  1 taken 5792478
+  3669596:  138:                deg++;
+  3669596:  138-block  0
+        -:  139:    }
+        -:  140:    //printf("deg: %d\n", deg);
+ 10155172:  141:    return deg;
+ 10155172:  141-block  0
+        -:  142:}
+        -:  143:// checks if 8 directions are out of bounds, if not then tries em
+function _Z14all8DirectionsPA10_sS0_iii called 4917771 returned 100% blocks executed 76%
+  4917771:  144:void all8Directions(short matrix[][10], short degs[10][10], int y, int x, int moveNum) {
+  4917771:  145:    priority_queue<int, vector<pair<int,int>>, greater<>> directions;
+  4917771:  145-block  0
+call    0 returned 4917771
+  4917771:  146:    while (!directions.empty())
+  4917771:  146-block  0
+call    0 returned 4917771
+branch  1 taken 0
+branch  2 taken 4917771 (fallthrough)
+    #####:  147:        directions.pop();
+    %%%%%:  147-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:  148:    //printf("Test %d %d %d\n", moveNum, y, x );
+        -:  149:    //printBoard(matrix);
+        -:  150:
+  4917771:  151:    int zero = getDegree(matrix, y - 2, x - 1, moveNum);
+  4917771:  151-block  0
+call    0 returned 4917771
+  4917771:  152:    if(zero > -100){
+branch  0 taken 1336310 (fallthrough)
+branch  1 taken 3581461
+  1336310:  153:        directions.push(make_pair(zero, 0));
+  1336310:  153-block  0
+call    0 returned 1336310
+branch  1 taken 1336310 (fallthrough)
+branch  2 taken 0 (throw)
+  1336310:  153-block  1
+call    3 returned 1336310
+branch  4 taken 1336310 (fallthrough)
+branch  5 taken 0 (throw)
+  1336310:  153-block  2
+    $$$$$:  153-block  3
+    $$$$$:  153-block  4
+        -:  154:    }
+  4917771:  155:    int one = getDegree(matrix, y - 2, x + 1, moveNum);
+  4917771:  155-block  0
+call    0 returned 4917771
+  4917771:  156:    if(one > -100)
+branch  0 taken 1030560 (fallthrough)
+branch  1 taken 3887211
+        -:  157:    {
+  1030560:  158:        directions.push(make_pair(one, 1));
+  1030560:  158-block  0
+call    0 returned 1030560
+branch  1 taken 1030560 (fallthrough)
+branch  2 taken 0 (throw)
+  1030560:  158-block  1
+call    3 returned 1030560
+branch  4 taken 1030560 (fallthrough)
+branch  5 taken 0 (throw)
+  1030560:  158-block  2
+    $$$$$:  158-block  3
+    $$$$$:  158-block  4
+        -:  159:    }
+        -:  160:
+        -:  161:
+  4917771:  162:    int two = getDegree(matrix, y + 2, x - 1, moveNum);
+  4917771:  162-block  0
+call    0 returned 4917771
+  4917771:  163:    if(two > -100)
+branch  0 taken 673771 (fallthrough)
+branch  1 taken 4244000
+   673771:  164:        directions.push(make_pair(two, 2));
+   673771:  164-block  0
+call    0 returned 673771
+branch  1 taken 673771 (fallthrough)
+branch  2 taken 0 (throw)
+   673771:  164-block  1
+call    3 returned 673771
+branch  4 taken 673771 (fallthrough)
+branch  5 taken 0 (throw)
+   673771:  164-block  2
+    $$$$$:  164-block  3
+    $$$$$:  164-block  4
+        -:  165:
+        -:  166:
+  4917771:  167:    int three = getDegree(matrix, y + 2, x + 1, moveNum);
+  4917771:  167-block  0
+call    0 returned 4917771
+  4917771:  168:    if(three > -100){
+branch  0 taken 1564421 (fallthrough)
+branch  1 taken 3353350
+        -:  169:        //printf("Test %d %d %d %d\n", moveNum, y, x, three);
+  1564421:  170:        directions.push(make_pair(three, 3));
+  1564421:  170-block  0
+call    0 returned 1564421
+branch  1 taken 1564421 (fallthrough)
+branch  2 taken 0 (throw)
+  1564421:  170-block  1
+call    3 returned 1564421
+branch  4 taken 1564421 (fallthrough)
+branch  5 taken 0 (throw)
+  1564421:  170-block  2
+    $$$$$:  170-block  3
+    $$$$$:  170-block  4
+        -:  171:    }
+        -:  172:
+  4917771:  173:    int four = getDegree(matrix, y - 1, x - 2, moveNum);
+  4917771:  173-block  0
+call    0 returned 4917771
+  4917771:  174:    if(four > -100)
+branch  0 taken 1008897 (fallthrough)
+branch  1 taken 3908874
+  1008897:  175:        directions.push(make_pair(four, 4));
+  1008897:  175-block  0
+call    0 returned 1008897
+branch  1 taken 1008897 (fallthrough)
+branch  2 taken 0 (throw)
+  1008897:  175-block  1
+call    3 returned 1008897
+branch  4 taken 1008897 (fallthrough)
+branch  5 taken 0 (throw)
+  1008897:  175-block  2
+    $$$$$:  175-block  3
+    $$$$$:  175-block  4
+        -:  176:
+        -:  177:
+  4917771:  178:    int five = getDegree(matrix, y + 1, x - 2, moveNum);
+  4917771:  178-block  0
+call    0 returned 4917771
+  4917771:  179:    if(five > -100)
+branch  0 taken 926291 (fallthrough)
+branch  1 taken 3991480
+   926291:  180:        directions.push(make_pair(five, 5));
+   926291:  180-block  0
+call    0 returned 926291
+branch  1 taken 926291 (fallthrough)
+branch  2 taken 0 (throw)
+   926291:  180-block  1
+call    3 returned 926291
+branch  4 taken 926291 (fallthrough)
+branch  5 taken 0 (throw)
+   926291:  180-block  2
+    $$$$$:  180-block  3
+    $$$$$:  180-block  4
+        -:  181:
+        -:  182:
+  4917771:  183:    int six = getDegree(matrix, y - 1, x + 2, moveNum);
+  4917771:  183-block  0
+call    0 returned 4917771
+  4917771:  184:    if(six > -100)
+branch  0 taken 1891308 (fallthrough)
+branch  1 taken 3026463
+  1891308:  185:        directions.push(make_pair(six, 6));
+  1891308:  185-block  0
+call    0 returned 1891308
+branch  1 taken 1891308 (fallthrough)
+branch  2 taken 0 (throw)
+  1891308:  185-block  1
+call    3 returned 1891308
+branch  4 taken 1891308 (fallthrough)
+branch  5 taken 0 (throw)
+  1891308:  185-block  2
+    $$$$$:  185-block  3
+    $$$$$:  185-block  4
+        -:  186:
+        -:  187:
+  4917771:  188:    int seven = getDegree(matrix, y + 1, x + 2, moveNum);
+  4917771:  188-block  0
+call    0 returned 4917771
+  4917771:  189:    if(seven > -100)
+branch  0 taken 1723572 (fallthrough)
+branch  1 taken 3194199
+  1723572:  190:        directions.push(make_pair(seven, 7));
+  1723572:  190-block  0
+call    0 returned 1723572
+branch  1 taken 1723572 (fallthrough)
+branch  2 taken 0 (throw)
+  1723572:  190-block  1
+call    3 returned 1723572
+branch  4 taken 1723572 (fallthrough)
+branch  5 taken 0 (throw)
+  1723572:  190-block  2
+    $$$$$:  190-block  3
+    $$$$$:  190-block  4
+        -:  191:
+ 15072774:  192:    while(!directions.empty())
+  4917771:  192-block  0
+ 15072774:  192-block  1
+call    0 returned 15072774
+branch  1 taken 10155066
+branch  2 taken 4917708 (fallthrough)
+        -:  193:    {
+        -:  194:        //if(moveNum == 30 && x == 2 && y == 2)
+        -:  195:        //printf("Science: %d %d %d %d\n", moveNum, directions.top().first, directions.top().second, directions.size());
+        -:  196:        //
+ 10155066:  197:        switch(directions.top().second){
+ 10155066:  197-block  0
+call    0 returned 10155066
+branch  1 taken 1336305
+branch  2 taken 1030555
+branch  3 taken 673765
+branch  4 taken 1564413
+branch  5 taken 1008886
+branch  6 taken 926282
+branch  7 taken 1891297
+branch  8 taken 1723563
+  1336305:  198:            default:
+        -:  199:                //printf("Exploring %d\n", directions.top().second);
+  1336305:  200:                exploreTile(matrix, degs, y - 2, x - 1, moveNum);
+  1336305:  200-block  0
+call    0 returned 1336297
+branch  1 taken 1336297 (fallthrough)
+branch  2 taken 0 (throw)
+  2366852:  201:            case 1:
+        -:  202:                //printf("Exploring %d\n", directions.top().second);
+  2366852:  203:                exploreTile(matrix, degs, y - 2, x + 1, moveNum);
+  2366852:  203-block  0
+call    0 returned 2366841
+branch  1 taken 2366841 (fallthrough)
+branch  2 taken 0 (throw)
+  3040606:  204:            case 2:
+        -:  205:                //printf("Exploring %d\n", directions.top().second);
+  3040606:  206:                exploreTile(matrix, degs, y + 2, x - 1, moveNum);
+  3040606:  206-block  0
+call    0 returned 3040598
+branch  1 taken 3040598 (fallthrough)
+branch  2 taken 0 (throw)
+  4605011:  207:            case 3:
+        -:  208:                //printf("Exploring %d\n", directions.top().second);
+  4605011:  209:                exploreTile(matrix, degs, y + 2, x + 1, moveNum);
+  4605011:  209-block  0
+call    0 returned 4604999
+branch  1 taken 4604999 (fallthrough)
+branch  2 taken 0 (throw)
+  5613885:  210:            case 4:
+        -:  211:                //printf("Exploring %d\n", directions.top().second);
+  5613885:  212:                exploreTile(matrix, degs, y - 1, x - 2, moveNum);
+  5613885:  212-block  0
+call    0 returned 5613881
+branch  1 taken 5613881 (fallthrough)
+branch  2 taken 0 (throw)
+  6540163:  213:            case 5:
+        -:  214:                //printf("Exploring %d\n", directions.top().second);
+  6540163:  215:                exploreTile(matrix, degs, y + 1, x - 2, moveNum);
+  6540163:  215-block  0
+call    0 returned 6540155
+branch  1 taken 6540155 (fallthrough)
+branch  2 taken 0 (throw)
+  8431452:  216:            case 6:
+  8431452:  217:                exploreTile(matrix, degs, y - 1, x + 2, moveNum);
+  8431452:  217-block  0
+call    0 returned 8431444
+branch  1 taken 8431444 (fallthrough)
+branch  2 taken 0 (throw)
+ 10155007:  218:            case 7:
+ 10155007:  219:                exploreTile(matrix, degs, y + 1, x + 2, moveNum);
+ 10155007:  219-block  0
+call    0 returned 10155003
+branch  1 taken 10155003 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  220:        }
+        -:  221:
+        -:  222:
+ 10155003:  223:        directions.pop();
+ 10155003:  223-block  0
+call    0 returned 10155003
+branch  1 taken 10155003 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  224:    }
+        -:  225:    //printf("Reee\n");
+  4917708:  226:}
+  4917708:  226-block  0
+call    0 returned 4917708
+    $$$$$:  226-block  1
+call    1 never executed
+        -:  227:/*
+        -:  228:void all8Reverse(short matrix[][10], int y, int x, int moveNum);
+        -:  229:
+        -:  230:inline void exploreReverse(short matrix[][10], short degs[][10], int y, int x, int moveNum) {
+        -:  231:    //printf("In exploreReverse\n");
+        -:  232:    if (matrix[y][x] > 0) { // if the space is taken, continue. dont need to check for magicalness
+        -:  233:        //printf("Shit\n");
+        -:  234:        if (matrix[y][x] != moveNum)
+        -:  235:            return;
+        -:  236:        else if (moveNum == 1){
+        -:  237:            //printf("trying\n");
+        -:  238:            all8Directions(matrix, oneY, oneX, 2);
+        -:  239:        }
+        -:  240:
+        -:  241:        all8Reverse(matrix, y, x, moveNum - 1);
+        -:  242:    }
+        -:  243:    else {
+        -:  244:        if (takenTiles[moveNum] == 1) // checks if current move # is taken by another tile
+        -:  245:        {
+        -:  246:            //printf("Sci 1\n");
+        -:  247:            return;
+        -:  248:        }
+        -:  249:
+        -:  250:        short newMatrix[10][10]; // making new matrix to continue the recursion
+        -:  251:        memcpy(newMatrix, matrix, 100 * sizeof(short));
+        -:  252:        newMatrix[y][x] = moveNum;
+        -:  253:        newMatrix[y][8] += moveNum;
+        -:  254:        newMatrix[y][9]++;
+        -:  255:        newMatrix[8][x] += moveNum;
+        -:  256:        newMatrix[9][x]++;
+        -:  257:        //printf("Test: %d\n", newMatrix[y][x]);
+        -:  258:        //printBoard(newMatrix);
+        -:  259:
+        -:  260:        if(newMatrix[y][8] > 260){
+        -:  261:            //printf("sci 4\n");
+        -:  262:            return;
+        -:  263:        }
+        -:  264:        if(newMatrix[8][x] > 260){
+        -:  265:            //printf("sci 5\n");
+        -:  266:            return;
+        -:  267:        }
+        -:  268:        all8Reverse(newMatrix, y, x, moveNum - 1);
+        -:  269:    }
+        -:  270:}
+        -:  271:
+        -:  272:void all8Reverse(short matrix[][10], int y, int x, int moveNum) {
+        -:  273:    //printf("In all8reverse\n");
+        -:  274:    if (y - 2 >= 0) {
+        -:  275:        if (x - 1 >= 0)
+        -:  276:            exploreReverse(matrix, y - 2, x - 1, moveNum);
+        -:  277:        if (x + 1 <= 7)
+        -:  278:            exploreReverse(matrix, y - 2, x + 1, moveNum);
+        -:  279:    }
+        -:  280:    if (y + 2 <= 7) {
+        -:  281:        if (x - 1 >= 0)
+        -:  282:            exploreReverse(matrix, y + 2, x - 1, moveNum);
+        -:  283:        if (x + 1 <= 7)
+        -:  284:            exploreReverse(matrix, y + 2, x + 1, moveNum);
+        -:  285:    }
+        -:  286:    if (x - 2 >= 0) {
+        -:  287:        if (y - 1 >= 0)
+        -:  288:            exploreReverse(matrix, y - 1, x - 2, moveNum);
+        -:  289:        if (y + 1 <= 7)
+        -:  290:            exploreReverse(matrix, y + 1, x - 2, moveNum);
+        -:  291:    }
+        -:  292:    if (x + 2 <= 7) {
+        -:  293:        if (y - 1 >= 0)
+        -:  294:            exploreReverse(matrix, y - 1, x + 2, moveNum);
+        -:  295:        if (y + 1 <= 7)
+        -:  296:            exploreReverse(matrix, y + 1, x + 2, moveNum);
+        -:  297:    }
+        -:  298:}
+        -:  299:*/
+function main called 1 returned 0% blocks executed 94%
+        1:  300:int main() {
+        1:  301:    ios_base::sync_with_stdio(false);
+        1:  301-block  0
+call    0 returned 1
+        1:  302:    cin.tie(nullptr);
+call    0 returned 1
+        1:  303:    int test = 0;
+       34:  304:    for(int i = 0; i <= 32; i++){
+       34:  304-block  0
+branch  0 taken 33
+branch  1 taken 1 (fallthrough)
+       33:  305:        test += i;
+       33:  305-block  0
+        -:  306:    }
+        -:  307:    //printf("upto 32: %d\n", test);
+        1:  308:    test = 0;
+       33:  309:    for(int i = 33; i <= 64; i++){
+        1:  309-block  0
+       33:  309-block  1
+branch  0 taken 32
+branch  1 taken 1 (fallthrough)
+       32:  310:        test += i;
+       32:  310-block  0
+        -:  311:    }
+        -:  312:    //printf("after 32: %d\n", test);
+        1:  313:    short highest = 0, highestY, highestX;
+        1:  314:    int currsum = 0;
+        9:  315:    for (int y = 0; y < 8; y++) // grabs the input, dont worry about this
+        1:  315-block  0
+        8:  315-block  1
+        9:  315-block  2
+branch  0 taken 8
+branch  1 taken 1 (fallthrough)
+       72:  316:        for (int x = 0; x < 8; x++) {
+        8:  316-block  0
+       72:  316-block  1
+branch  0 taken 64
+branch  1 taken 8 (fallthrough)
+       64:  317:            short input = 0;
+       64:  318:            cin >> input;
+       64:  318-block  0
+call    0 returned 64
+branch  1 taken 64 (fallthrough)
+branch  2 taken 0 (throw)
+       64:  319:            if (input > highest){
+       64:  319-block  0
+branch  0 taken 3 (fallthrough)
+branch  1 taken 61
+        3:  320:                highest = input;
+        3:  321:                highestY = y;
+        3:  322:                highestX = x;
+        3:  322-block  0
+        -:  323:            }
+       64:  324:            if (input == -1)
+       64:  324-block  0
+branch  0 taken 42 (fallthrough)
+branch  1 taken 22
+       42:  325:                original[y][x] = 0;
+       42:  325-block  0
+        -:  326:            else {
+       22:  327:                original[y][x] = input;
+       22:  328:                takenTiles[original[y][x]] = 1;
+       22:  329:                original[y][8] += original[y][x];
+       22:  330:                original[8][x] += original[y][x];
+       22:  331:                original[y][9]++;
+       22:  332:                original[9][x]++;
+       22:  333:                if (original[y][x] == 1)
+       22:  333-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 21
+        1:  334:                    oneY = y, oneX = x;
+        1:  334-block  0
+        -:  335:            }
+       64:  336:            currsum += original[y][x];
+       64:  336-block  0
+        -:  337:        }
+        9:  338:    for (int y = 0; y < 8; y++) // grabs the input, dont worry about this
+        1:  338-block  0
+        8:  338-block  1
+        9:  338-block  2
+branch  0 taken 8
+branch  1 taken 1 (fallthrough)
+       72:  339:        for (int x = 0; x < 8; x++)
+        8:  339-block  0
+       72:  339-block  1
+branch  0 taken 64
+branch  1 taken 8 (fallthrough)
+       64:  340:            degree[y][x] = getDegree(original, y, x, 2);
+       64:  340-block  0
+call    0 returned 64
+        -:  341:    //printBoard(original);
+        -:  342:    //printBoard(degree);
+        1:  343:    printf("currsum: %d\n", currsum);
+        1:  343-block  0
+call    0 returned 1
+        1:  344:    start = chrono::high_resolution_clock::now(); // starts timer
+call    0 returned 1
+        -:  345:    if(currsum > 850){
+        -:  346:        //all8Reverse(original, highestY, highestX, highest-1);
+        -:  347:        //printf("Gamer\n");
+        -:  348:    }
+        1:  349:    all8Directions(original, degree, oneY, oneX, 2); // starts the program
+call    0 returned 0
+    #####:  350:    return 0;
+        -:  351:}

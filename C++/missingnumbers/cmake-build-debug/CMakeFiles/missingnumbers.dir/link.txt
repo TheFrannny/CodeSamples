@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\missingnumbers.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\missingnumbers.dir/objects.a @CMakeFiles\missingnumbers.dir\objects1.rsp
+C:\MinGW\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\missingnumbers.dir/objects.a -Wl,--no-whole-archive  -o missingnumbers.exe -Wl,--out-implib,libmissingnumbers.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\missingnumbers.dir\linklibs.rsp

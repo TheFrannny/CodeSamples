@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\erase.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\erase.dir/objects.a @CMakeFiles\erase.dir\objects1.rsp
+C:\MinGW\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\erase.dir/objects.a -Wl,--no-whole-archive -o erase.exe -Wl,--out-implib,liberase.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\erase.dir\linklibs.rsp

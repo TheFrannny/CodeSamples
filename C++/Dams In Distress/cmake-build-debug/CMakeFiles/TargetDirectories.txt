@@ -1,0 +1,3 @@
+C:/Users/Adolf Hitler/CLionProjects/Dams In Distress/cmake-build-debug/CMakeFiles/Dams_In_Distress.dir
+C:/Users/Adolf Hitler/CLionProjects/Dams In Distress/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Adolf Hitler/CLionProjects/Dams In Distress/cmake-build-debug/CMakeFiles/rebuild_cache.dir

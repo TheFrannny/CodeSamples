@@ -1,0 +1,3 @@
+C:/Users/Adolf Hitler/CLionProjects/MipsProject/cmake-build-debug/CMakeFiles/MipsProject.dir
+C:/Users/Adolf Hitler/CLionProjects/MipsProject/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Adolf Hitler/CLionProjects/MipsProject/cmake-build-debug/CMakeFiles/rebuild_cache.dir

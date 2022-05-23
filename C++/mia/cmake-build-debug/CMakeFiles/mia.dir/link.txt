@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\mia.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\mia.dir/objects.a @CMakeFiles\mia.dir\objects1.rsp
+C:\MinGW\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\mia.dir/objects.a -Wl,--no-whole-archive  -o mia.exe -Wl,--out-implib,libmia.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\mia.dir\linklibs.rsp

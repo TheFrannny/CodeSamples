@@ -1,0 +1,3 @@
+C:/Users/Adolf Hitler/CLionProjects/narrowartgallery/cmake-build-debug/CMakeFiles/narrowartgallery.dir
+C:/Users/Adolf Hitler/CLionProjects/narrowartgallery/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Adolf Hitler/CLionProjects/narrowartgallery/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\lastfactorialdigit.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\lastfactorialdigit.dir/objects.a @CMakeFiles\lastfactorialdigit.dir\objects1.rsp
+C:\MinGW\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\lastfactorialdigit.dir/objects.a -Wl,--no-whole-archive  -o lastfactorialdigit.exe -Wl,--out-implib,liblastfactorialdigit.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\lastfactorialdigit.dir\linklibs.rsp

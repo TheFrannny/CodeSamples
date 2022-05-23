@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Adolf Hitler/CLionProjects/ICPC 3/main.cpp
+iostream
+-
+vector
+-
+algorithm
+-
+unordered_map
+-
+map
+-
+

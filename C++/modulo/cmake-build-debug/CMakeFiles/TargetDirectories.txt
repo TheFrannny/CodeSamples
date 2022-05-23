@@ -1,0 +1,3 @@
+C:/Users/Adolf Hitler/CLionProjects/modulo/cmake-build-debug/CMakeFiles/modulo.dir
+C:/Users/Adolf Hitler/CLionProjects/modulo/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Adolf Hitler/CLionProjects/modulo/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Adolf Hitler/CLionProjects/closestpair2/main.cpp
+iostream
+-
+algorithm
+-
+vector
+-
+cstdio
+-
+cstdlib
+-
+cmath
+-
+bits/stdc++.h
+-
+

@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Adolf Hitler/CLionProjects/knotknowledge/main.cpp
+iostream
+-
+vector
+-
+map
+-
+unordered_set
+-
+algorithm
+-
+queue
+-
+

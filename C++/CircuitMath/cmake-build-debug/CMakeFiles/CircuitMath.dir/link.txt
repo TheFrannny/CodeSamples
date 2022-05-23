@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\CircuitMath.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\CircuitMath.dir/objects.a @CMakeFiles\CircuitMath.dir\objects1.rsp
+C:\MinGW\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\CircuitMath.dir/objects.a -Wl,--no-whole-archive  -o CircuitMath.exe -Wl,--out-implib,libCircuitMath.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\CircuitMath.dir\linklibs.rsp

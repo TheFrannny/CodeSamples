@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\esej.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\esej.dir/objects.a @CMakeFiles\esej.dir\objects1.rsp
+C:\MinGW\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\esej.dir/objects.a -Wl,--no-whole-archive  -o esej.exe -Wl,--out-implib,libesej.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\esej.dir\linklibs.rsp

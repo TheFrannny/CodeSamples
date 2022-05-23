@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\hissingmicrophone.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\hissingmicrophone.dir/objects.a @CMakeFiles\hissingmicrophone.dir\objects1.rsp
+C:\MinGW\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\hissingmicrophone.dir/objects.a -Wl,--no-whole-archive -o hissingmicrophone.exe -Wl,--out-implib,libhissingmicrophone.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\hissingmicrophone.dir\linklibs.rsp

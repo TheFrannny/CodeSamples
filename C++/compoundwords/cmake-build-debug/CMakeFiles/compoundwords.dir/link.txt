@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\compoundwords.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\compoundwords.dir/objects.a @CMakeFiles\compoundwords.dir\objects1.rsp
+C:\MinGW\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\compoundwords.dir/objects.a -Wl,--no-whole-archive  -o compoundwords.exe -Wl,--out-implib,libcompoundwords.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\compoundwords.dir\linklibs.rsp

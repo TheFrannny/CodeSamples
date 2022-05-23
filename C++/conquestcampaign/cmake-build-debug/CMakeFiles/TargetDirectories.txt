@@ -1,0 +1,3 @@
+C:/Users/Adolf Hitler/CLionProjects/conquestcampaign/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Adolf Hitler/CLionProjects/conquestcampaign/cmake-build-debug/CMakeFiles/conquestcampaign.dir
+C:/Users/Adolf Hitler/CLionProjects/conquestcampaign/cmake-build-debug/CMakeFiles/edit_cache.dir

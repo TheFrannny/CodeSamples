@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\earlywinter.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\earlywinter.dir/objects.a @CMakeFiles\earlywinter.dir\objects1.rsp
+C:\MinGW\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\earlywinter.dir/objects.a -Wl,--no-whole-archive  -o earlywinter.exe -Wl,--out-implib,libearlywinter.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\earlywinter.dir\linklibs.rsp
