@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\addtwonumbers.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\addtwonumbers.dir/objects.a @CMakeFiles\addtwonumbers.dir\objects1.rsp
+C:\MinGW\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\addtwonumbers.dir/objects.a -Wl,--no-whole-archive  -o addtwonumbers.exe -Wl,--out-implib,libaddtwonumbers.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\addtwonumbers.dir\linklibs.rsp
