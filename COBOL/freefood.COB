@@ -1,0 +1,40 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. freefood.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+           01 INP PIC X(50).
+           01 FST PIC 999.
+           01 LST PIC 999.
+           01 TOTAL PIC 999 VALUE 0.
+           01 CUR PIC 999 VALUE 1.
+           01 CUR2 PIC 999 VALUE 1.
+           01 EVENTS PIC 9999 VALUE 0.
+           01 DAYS OCCURS 366 TIMES PIC 9.
+           01 FORMATTED-INTEGER PIC Z(04)9.
+
+       PROCEDURE DIVISION.
+           *> DISPLAY "ACCEPTING ENTRIES NOW".
+           ACCEPT EVENTS.
+           PERFORM LOOP VARYING CUR FROM 0001 BY 0001 UNTIL CUR > EVENTS.
+           PERFORM LOOP3 VARYING CUR FRom 0000 BY 0001 UNTIL CUR > 365.
+           MOVE TOTAL To FORMATTED-INTEGER
+           DISPLAY FORMATTED-INTEGER
+           STOP RUN.
+
+       LOOP.
+            *> DISPLAY "ACCEPTING LEFT AND RIGHT: ".
+           ACCEPT INP.
+           UNSTRING INP
+               DELIMITED BY SPACE INTO FST, LST.
+            *> DISPLAY INP " " FST " " LST.
+           PERFORM LOOP2 VARYING CUR2 FROM FST BY 0001 UNTIL CUR2 > LST.
+
+       LOOP2.
+           SET DAYS (CUR2) TO 1.
+           *> DISPLAY "SETTING " CUR2 " " DAYS (CUR2).
+
+       LOOP3.
+           IF DAYS (CUR) > 0
+               ADD 1 TO TOTAL
+           END-IF.
